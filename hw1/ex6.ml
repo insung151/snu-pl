@@ -17,7 +17,7 @@ let rec eval : expr -> int = fun e ->
   | MAX [] -> 0
   | MAX (head::[]) -> eval(head)
   | MAX (first::second::tail) -> 
-    if first > second then
+    if eval(first) > eval(second) then
       eval(MAX (first::tail))
     else 
       eval(MAX (second::tail))
